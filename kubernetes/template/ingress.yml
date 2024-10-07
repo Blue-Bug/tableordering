@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata: 
+  name: tableordering
+  annotations: 
+    kubernetes.io/ingress.class: "nginx"
+spec: 
+  rules: 
+    - host: ""
+      http: 
+        paths: 
+          - path: /orders
+            pathType: Prefix
+            backend: 
+              serviceName: order
+              servicePort: 8080
+          - path: /managements
+            pathType: Prefix
+            backend: 
+              serviceName: management
+              servicePort: 8080
+          - path: /payments
+            pathType: Prefix
+            backend: 
+              serviceName: payment
+              servicePort: 8080
+          - path: /users
+            pathType: Prefix
+            backend: 
+              serviceName: user
+              servicePort: 8080
+          - path: /menus
+            pathType: Prefix
+            backend: 
+              serviceName: menu
+              servicePort: 8080
+          - path: /categories
+            pathType: Prefix
+            backend: 
+              serviceName: category
+              servicePort: 8080
